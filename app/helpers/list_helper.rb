@@ -236,10 +236,14 @@ module ListHelper
   #
   # Returns String to be used as a CSS class.
   def column_type_class(model, attribute)
-    if column = model.columns_hash[attribute]
-      "column-#{column.type}"
+    if model.respond_to?(:columns_hash)
+      if column = model.columns_hash[attribute]
+        "column-#{column.type}"
+      else
+        "column-association"
+      end
     else
-      "column-association"
+      "column-#{attribute}"
     end
   end
 

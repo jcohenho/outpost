@@ -7,8 +7,7 @@ module Outpost
 
       def get_records
         @records = model.order(
-          "#{model.table_name}.#{order_attribute} #{order_direction}")
-          .page(params[:page]).per(self.list.per_page)
+          "#{order_attribute} #{order_direction}")
       end
     end # Callbacks
   end # Controller

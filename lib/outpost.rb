@@ -1,5 +1,5 @@
 require "outpost/engine"
-
+require 'parse_resource'
 require 'active_record'
 require 'action_controller'
 require 'action_view'
@@ -73,9 +73,12 @@ module Outpost
     end
   end
 end
-
 if defined?(ActiveRecord::Base)
   ActiveRecord::Base.send :include, Outpost::Model
+end
+
+if defined?(ParseResource::Base)
+  ParseResource::Base.send :include, Outpost::Model
 end
 
 if defined?(ActionController::Base)
