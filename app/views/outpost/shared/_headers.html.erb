@@ -3,7 +3,7 @@
 <% list.columns.each do |attribute, column| %>
   <% is_sorting = order_attribute == column.attribute.to_s %>
 
-  <th class="<%='header-highlighted' if is_sorting%> <%='header-sortable' if column.sortable?%> <%=column_attribute_class(column.attribute)%> <%=column_type_class(model, column.attribute)%>">
+  <th class="<%='header-highlighted' if is_sorting%> <%='header-sortable' if column.sortable?%> <%=column_attribute_class(column.attribute)%> <%=column_type_class(model, column)%>">
     <% if column.sortable? || is_sorting %>
       <i class="icon <%=direction_icon(is_sorting ? order_direction : column.default_order_direction)%>"></i>
 

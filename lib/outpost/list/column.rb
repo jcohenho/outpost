@@ -10,7 +10,8 @@ module Outpost
         :sortable,
         :default_order_direction,
         :_display_helper,
-        :header
+        :header,
+        :type
 
       alias_method :quick_edit?, :quick_edit
       alias_method :sortable?, :sortable
@@ -22,6 +23,7 @@ module Outpost
 
         @header     = attributes[:header] || @attribute.titleize
         @display    = attributes[:display]
+        @type       = attributes[:type]
         @quick_edit = !!attributes[:quick_edit]
         @sortable   = !!attributes[:sortable]
 

@@ -235,15 +235,15 @@ module ListHelper
   #   # => <tr class="column-datetime">
   #
   # Returns String to be used as a CSS class.
-  def column_type_class(model, attribute)
+  def column_type_class(model, col)
     if model.respond_to?(:columns_hash)
-      if column = model.columns_hash[attribute]
+      if column = model.columns_hash[col.attribute]
         "column-#{column.type}"
       else
         "column-association"
       end
     else
-      "column-#{attribute}"
+      "column-#{col.type}"
     end
   end
 
