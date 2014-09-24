@@ -27,8 +27,13 @@ module Outpost
       end
 
       def create
+        if model == PfsUser
+          form_params[:viewsLeft] = form_params[:viewsLeft].to_i
+          form_params[:pledgeAmount] = form_params[:pledgeAmount].to_i
+          form_params[:emailSent] = form_params[:emailSent].to_bool
+        end
+        binding.pry
         @record = model.new(form_params)
-
         if @record.save
           notice "Saved #{@record.simple_title}"
           respond_with :outpost, @record, location: requested_location
@@ -39,6 +44,11 @@ module Outpost
       end
 
       def update
+        if @record.is_a?(PfsUser)
+          form_params[:viewsLeft] = form_params[:viewsLeft].to_i
+          form_params[:pledgeAmount] = form_params[:pledgeAmount].to_i
+          form_params[:emailSent] = form_params[:emailSent].to_bool
+        end
         if @record.update_attributes(form_params)
           notice "Saved #{@record.simple_title}"
           respond_with :outpost, @record, location: requested_location
