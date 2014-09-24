@@ -30,6 +30,10 @@ table {
         width: $booleanWidth;
     }
 
+    .column-integer {
+        width: $integerWidth;
+    }
+
     .column-id {
         width: $integerWidth;
     }
