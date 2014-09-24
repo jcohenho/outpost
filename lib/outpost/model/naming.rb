@@ -54,11 +54,7 @@ module Outpost
 
       def simple_title
         @simple_title ||= begin
-          if self.new_record?
-            "New #{self.class.to_title}"
-          else
-            "#{self.class.to_title} ##{self.id}"
-          end
+          "#{self.class.to_title} ##{self.id}"
         end
       end
     end # Naming

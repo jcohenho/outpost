@@ -5,7 +5,7 @@
 module Outpost
   class Config
     DEFAULTS = {
-      :title_attributes           => [:name, :title],
+      :title_attributes           => [:name, :email],
       :excluded_form_fields       => ["id", "created_at", "updated_at"],
       :excluded_list_columns      => [],
       :user_class                 => "User",
